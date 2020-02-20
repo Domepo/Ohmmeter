@@ -4,7 +4,7 @@ int shiftPin = 8;
 int storePin = 10;
 // Arduino-Pin verbunden mit DS des 74HC595
 int dataPin = 11;
-int a = 9;
+int a = 9425465;
 
 // Dieses Muster soll ausgegeben werden
 //    
@@ -18,9 +18,30 @@ int a = 9;
  int sechs_1[16] = {0,0,0,1,1,1,1,1,1,0,1,1,1,1,0,0};    
 int sieben_1[16] = {0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0};     
   int acht_1[16] = {0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0}; 
- int neun_1[16] = {0,0,0,1,1,0,1,1,1,1,1,1,1,1,0,0};  
- 
-//                 {0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0}; //deactivate 1-4  
+ int neun_1[16] = {0,0,0,1,1,0,1,1,1,1,1,1,1,1,0,0};
+   
+  int null_2[16] = {0,0,0,0,1,1,1,1,1,1,1,1,1,0,1,0};  
+  int eins_2[16] = {0,0,0,0,0,0,0,0,1,1,0,1,1,0,1,0};  
+  int zwei_2[16] = {0,0,0,1,0,1,1,1,0,1,1,1,1,0,1,0};  
+  int drei_2[16] = {0,0,0,1,0,0,1,1,1,1,1,1,1,0,1,0};      
+  int vier_2[16] = {0,0,0,1,1,0,0,0,1,1,0,1,1,0,1,0};    
+ int fuenf_2[16] = {0,0,0,1,1,0,1,1,1,0,1,1,1,0,1,0};   
+ int sechs_2[16] = {0,0,0,1,1,1,1,1,1,0,1,1,1,0,1,0};    
+int sieben_2[16] = {0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0};     
+  int acht_2[16] = {0,0,0,1,1,1,1,1,1,1,1,1,1,0,1,0}; 
+ int neun_2[16] = {0,0,0,1,1,0,1,1,1,1,1,1,1,0,1,0};   
+
+  int null_3[16] = {0,0,0,0,1,1,1,1,1,1,1,1,1,1,0,0};  
+  int eins_3[16] = {0,0,0,0,0,0,0,0,1,1,0,1,1,1,0,0};  
+  int zwei_3[16] = {0,0,0,1,0,1,1,1,0,1,1,1,1,1,0,0};  
+  int drei_3[16] = {0,0,0,1,0,0,1,1,1,1,1,1,1,1,0,0};      
+  int vier_3[16] = {0,0,0,1,1,0,0,0,1,1,0,1,1,1,0,0};    
+ int fuenf_3[16] = {0,0,0,1,1,0,1,1,1,0,1,1,1,1,0,0};   
+ int sechs_3[16] = {0,0,0,1,1,1,1,1,1,0,1,1,1,1,0,0};    
+int sieben_3[16] = {0,0,0,0,0,0,0,0,1,1,1,1,1,1,0,0};     
+  int acht_3[16] = {0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0}; 
+ int neun_3[16] = {0,0,0,1,1,0,1,1,1,1,1,1,1,1,0,0};    
+//                 {0,0,0,0,0,0,0,0,0,0,0,1,1,0,1,0}; //deactivate 1-4  
 //               {0,0,0,0,0,0,9,8,7,6,5,4,3,2,1,0};
 void setup() {
  
@@ -81,6 +102,67 @@ void loop () {
  }
 
   digitalWrite(storePin, HIGH);
+delay(1);   
+ digitalWrite(storePin, LOW); 
+ 
+ for (int i=0; i<16; i++) {
+ digitalWrite(shiftPin, LOW);
+ if (ExtractDigit(a,2) == 1){
+ digitalWrite(dataPin, eins_2[i]);}
+ if (ExtractDigit(a,2) == 2){
+ digitalWrite(dataPin, vier_2[i]);}
+ if (ExtractDigit(a,2) == 3){
+ digitalWrite(dataPin, drei_2[i]);} 
+  if (ExtractDigit(a,2) == 4){
+ digitalWrite(dataPin, vier_2[i]);}
+ if (ExtractDigit(a,2) == 5){
+ digitalWrite(dataPin, fuenf_2[i]);}
+ if (ExtractDigit(a,2) == 6){
+ digitalWrite(dataPin, sechs_2[i]);} 
+  if (ExtractDigit(a,2) == 7){
+ digitalWrite(dataPin, sieben_2[i]);}
+ if (ExtractDigit(a,2) == 8){
+ digitalWrite(dataPin, acht_2[i]);}
+ if (ExtractDigit(a,2) == 9){
+ digitalWrite(dataPin, neun_2[i]);} 
+  if (ExtractDigit(a,2) == 0){
+ digitalWrite(dataPin, null_2[i]);} 
+ digitalWrite(shiftPin, HIGH);
+
+ }
+
+  digitalWrite(storePin, HIGH);  
+delay(1);  
+ digitalWrite(storePin, LOW); 
+ 
+ for (int i=0; i<16; i++) {
+ digitalWrite(shiftPin, LOW);
+ if (ExtractDigit(a,0) == 1){
+ digitalWrite(dataPin, eins_3[i]);}
+ if (ExtractDigit(a,0) == 2){
+ digitalWrite(dataPin, vier_3[i]);}
+ if (ExtractDigit(a,0) == 3){
+ digitalWrite(dataPin, drei_3[i]);} 
+  if (ExtractDigit(a,0) == 4){
+ digitalWrite(dataPin, vier_3[i]);}
+ if (ExtractDigit(a,0) == 5){
+ digitalWrite(dataPin, fuenf_3[i]);}
+ if (ExtractDigit(a,0) == 6){
+ digitalWrite(dataPin, sechs_3[i]);} 
+  if (ExtractDigit(a,0) == 7){
+ digitalWrite(dataPin, sieben_3[i]);}
+ if (ExtractDigit(a,0) == 8){
+ digitalWrite(dataPin, acht_3[i]);}
+ if (ExtractDigit(a,0) == 9){
+ digitalWrite(dataPin, neun_3[i]);} 
+  if (ExtractDigit(a,0) == 0){
+ digitalWrite(dataPin, null_3[i]);} 
+ digitalWrite(shiftPin, HIGH);
+
+ }
+
+  digitalWrite(storePin, HIGH);    
+  delay(1);  
 }
 int ExtractDigit(int V, int P)
 {
